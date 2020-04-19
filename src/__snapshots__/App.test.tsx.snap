@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders without crashing 1`] = `
+<div>
+  <div
+    class="container-fluid"
+  >
+    <div
+      class="row"
+    >
+      <h1>
+        Autos Online
+      </h1>
+    </div>
+  </div>
+  <div
+    class="container-fluid"
+  >
+    <div
+      class="row"
+    >
+      <div
+        data-testid="vehicle-list"
+      />
+    </div>
+  </div>
+  <div
+    class="container-fluid"
+  >
+    <div
+      class="row"
+    >
+      Copyright 
+      2020
+    </div>
+  </div>
+</div>
+`;
