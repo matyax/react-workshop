@@ -25,7 +25,7 @@ const VehicleList: React.FC = () => {
   return (
     <ul className="list-unstyled">
       {vehicles.map((vehicle) => (
-        <Item vehicle={vehicle} />
+        <Item vehicle={vehicle} key={vehicle.id} />
       ))}
     </ul>
   );
