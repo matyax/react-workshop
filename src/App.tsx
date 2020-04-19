@@ -1,9 +1,14 @@
+import Layout from "components/layout/Layout";
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 function App() {
-  return <div>Futura app de React</div>;
+  return (
+    <Layout>
+      <div>Futura app de React</div>
+    </Layout>
+  );
 }
 
 export default App;
