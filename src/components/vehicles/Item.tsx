@@ -10,6 +10,7 @@ const VehicleItem: React.FC<{ vehicle: Vehicle }> = ({ vehicle }) => (
       className="mr-3"
       src="holder.js/64x64"
       alt={vehicle.model}
+      data-testid="vehicle-image"
     />
     <Media.Body>
       <h5>
