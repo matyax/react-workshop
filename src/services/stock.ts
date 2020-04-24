@@ -1,24 +1,20 @@
-import Vehicle from "models/Vehicle";
+import axios from "axios";
+import Vehicle, { VehicleData } from "models/Vehicle";
 
-const data = [
-  {
-    id: 1,
-    brand: "Ford",
-    model: "Mondeo",
-    year: 2020,
-    price: 3000000,
-  },
-  {
-    id: 2,
-    brand: "Volkswagen",
-    model: "T-Cross",
-    year: 2019,
-    price: 2500000,
-  },
-];
+const apiUrl =
+  process.env.NODE_ENV !== "production" ? "localhost:3100" : "stock.com";
+const apiVersion = "v1";
 
 export async function get() {
-  const vehicles = data.map((data) => new Vehicle(data));
+  try {
+    const { data } = await axios.get(
+      `http://${apiUrl}/api/${apiVersion}/stock`
+    );
 
-  return Promise.resolve(vehicles);
+    return data.data.map((data: VehicleData) => new Vehicle(data));
+  } catch (e) {
+    console.error(e);
+
+    return [];
+  }
 }

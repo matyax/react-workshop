@@ -1,4 +1,4 @@
-interface VehicleData {
+export interface VehicleData {
   id: number;
   brand: string;
   model: string;
