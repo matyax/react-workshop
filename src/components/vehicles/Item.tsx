@@ -4,7 +4,7 @@ import { Media, Button } from "react-bootstrap";
 import { format as formatPrice } from "helpers/price";
 
 const VehicleItem: React.FC<{ vehicle: Vehicle }> = ({ vehicle }) => (
-  <Media as="li" className="vehicle__item">
+  <Media as="li" className="vehicle__item" data-testid="vehicle-item">
     <img
       width={120}
       height="auto"

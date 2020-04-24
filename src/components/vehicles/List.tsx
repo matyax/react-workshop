@@ -30,7 +30,7 @@ const VehicleList: React.FC = () => {
   }
 
   return (
-    <ul className="list-unstyled">
+    <ul className="list-unstyled" data-testid="vehicle-list">
       {vehicles.map((vehicle) => (
         <Item vehicle={vehicle} key={vehicle.id} />
       ))}

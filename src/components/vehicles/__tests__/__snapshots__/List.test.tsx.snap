@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders a vehicle list 1`] = `
+<div>
+  <ul
+    class="list-unstyled"
+    data-testid="vehicle-list"
+  >
+    <li
+      class="vehicle__item media"
+      data-testid="vehicle-item"
+    >
+      <img
+        alt="Mondeo"
+        class="mr-3"
+        data-testid="vehicle-image"
+        height="auto"
+        src="img/ford/mondeo.jpg"
+        width="120"
+      />
+      <div
+        class="media-body"
+      >
+        <h5>
+          Ford
+           
+          Mondeo
+        </h5>
+        <p>
+          La unión perfecta entre tecnología, sofisticación, rendimiento y eficiencia, diseño innovador e ingeniería de precisión, el Mondeo está creado para inspirar.
+        </p>
+        <p>
+          ARS 3,000,000.00
+        </p>
+        <button
+          class="btn btn-primary"
+          type="button"
+        >
+          Reservar online
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
