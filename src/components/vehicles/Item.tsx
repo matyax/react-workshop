@@ -6,9 +6,9 @@ const VehicleItem: React.FC<{ vehicle: Vehicle }> = ({ vehicle }) => (
   <Media as="li">
     <img
       width={120}
-      height={120}
+      height="auto"
       className="mr-3"
-      src="holder.js/64x64"
+      src={vehicle.image}
       alt={vehicle.model}
       data-testid="vehicle-image"
     />

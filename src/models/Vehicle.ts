@@ -20,6 +20,10 @@ class Vehicle {
     this.year = year;
     this.price = price;
   }
+
+  get image() {
+    return `img/${this.brand.toLowerCase()}/${this.model.toLowerCase()}.jpg`;
+  }
 }
 
 export default Vehicle;
