@@ -13,6 +13,8 @@ const stock = [
     model: "Mondeo",
     year: 2020,
     price: 3000000,
+    description:
+      "La unión perfecta entre tecnología, sofisticación, rendimiento y eficiencia, diseño innovador e ingeniería de precisión, el Mondeo está creado para inspirar.",
   },
   {
     id: 2,
@@ -20,6 +22,8 @@ const stock = [
     model: "T-Cross",
     year: 2019,
     price: 2500000,
+    description:
+      " El Nuevo T-Cross obtuvo la calificación máxima en las pruebas Latin NCAP, convirtiéndose en uno de los vehículos más seguros de la región, con 5 estrellas en la protección para adultos y la misma cantidad en seguridad para niños.",
   },
 ];
 

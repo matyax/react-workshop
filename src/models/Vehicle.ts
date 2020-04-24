@@ -4,6 +4,7 @@ export interface VehicleData {
   model: string;
   year: number;
   price: number;
+  description: string;
 }
 
 class Vehicle {
@@ -12,13 +13,15 @@ class Vehicle {
   readonly model: string;
   readonly year: number;
   readonly price: number;
+  readonly description: string;
 
-  constructor({ id, brand, model, year, price }: VehicleData) {
+  constructor({ id, brand, model, year, price, description }: VehicleData) {
     this.id = id;
     this.brand = brand;
     this.model = model;
     this.year = year;
     this.price = price;
+    this.description = description;
   }
 
   get image() {
