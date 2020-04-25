@@ -1,8 +1,10 @@
 import React, { useState, useEffect, SyntheticEvent } from "react";
 import Vehicle from "models/Vehicle";
 import VehicleItem from "components/vehicles/Item";
+import { book } from "services/booking";
 import { get as getStockItem } from "services/stock";
 import { Form, Button, Spinner } from "react-bootstrap";
+import { Redirect } from "react-router-dom";
 
 const BookVehicle: React.FC<{ match: { params: { id: number } } }> = ({
   match: {
@@ -15,6 +17,8 @@ const BookVehicle: React.FC<{ match: { params: { id: number } } }> = ({
     telephone: "",
   });
   const [vehicle, setVehicle] = useState<Vehicle | null | undefined>(undefined);
+  const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   async function getVehicle(id: number) {
     setVehicle(await getStockItem(id));
@@ -22,13 +26,11 @@ const BookVehicle: React.FC<{ match: { params: { id: number } } }> = ({
 
   useEffect(() => {
     getVehicle(id);
-  }, []);
+  }, [id]);
 
-  const handleChange = (e: SyntheticEvent<HTMLInputElement>) => {
-    let newData = { ...data, [e.currentTarget.name]: e.currentTarget.value };
-
-    setData(newData);
-  };
+  if (success) {
+    return <Redirect to="/felicitaciones" />;
+  }
 
   if (vehicle === undefined) {
     return (
@@ -48,8 +50,34 @@ const BookVehicle: React.FC<{ match: { params: { id: number } } }> = ({
     );
   }
 
+  const handleChange = (e: SyntheticEvent<HTMLInputElement>) => {
+    let newData = { ...data, [e.currentTarget.name]: e.currentTarget.value };
+
+    setData(newData);
+  };
+
+  const handleSubmit = async (e: SyntheticEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    setSubmitting(true);
+
+    const result = await book({
+      ...data,
+      vehicle: `${vehicle.brand} ${vehicle.model}`,
+      id: vehicle.id,
+    });
+
+    if (result === true) {
+      setSuccess(true);
+    }
+
+    alert("Error: por favor reintente más tarde.");
+
+    setSubmitting(false);
+  };
+
   return (
-    <Form className="vehicle__form">
+    <Form className="vehicle__form" onSubmit={handleSubmit}>
       <h3>Reservar vehículo {id}</h3>
 
       <VehicleItem vehicle={vehicle} />
@@ -87,7 +115,7 @@ const BookVehicle: React.FC<{ match: { params: { id: number } } }> = ({
         />
       </Form.Group>
 
-      <Button variant="primary" type="submit">
+      <Button variant="primary" type="submit" disabled={submitting}>
         Reservar!
       </Button>
     </Form>
