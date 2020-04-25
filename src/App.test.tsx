@@ -1,8 +1,8 @@
+import App from "./App";
 import React from "react";
 import { render } from "@testing-library/react";
-import App from "./App";
 
-jest.mock("components/vehicles/List", () => () => (
+jest.mock("components/containers/VehicleList", () => () => (
   <div data-testid="vehicle-list" />
 ));
 

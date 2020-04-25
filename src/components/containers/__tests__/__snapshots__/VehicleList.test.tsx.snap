@@ -15,7 +15,7 @@ exports[`Renders a vehicle list 1`] = `
         class="mr-3"
         data-testid="vehicle-image"
         height="auto"
-        src="img/ford/mondeo.jpg"
+        src="/img/ford/mondeo.jpg"
         width="120"
       />
       <div

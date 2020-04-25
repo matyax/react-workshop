@@ -1,6 +1,6 @@
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
-import List from "../List";
+import VehicleList from "../VehicleList";
 import React from "react";
 import { render, waitForElement } from "@testing-library/react";
 
@@ -23,7 +23,7 @@ beforeEach(() => {
 });
 
 test("Renders a vehicle list", async () => {
-  const { container, getByTestId, getAllByTestId } = render(<List />);
+  const { container, getByTestId, getAllByTestId } = render(<VehicleList />);
 
   await waitForElement(() => getByTestId("vehicle-list"));
 

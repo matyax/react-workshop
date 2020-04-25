@@ -1,4 +1,4 @@
-import Item from "./Item";
+import Item from "components/vehicles/Item";
 import React, { useEffect, useState } from "react";
 import Vehicle from "models/Vehicle";
 import { get as getStock } from "services/stock";

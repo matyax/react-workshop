@@ -16,6 +16,7 @@
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.0",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "typescript": "~3.7.2"
   },
@@ -48,6 +49,7 @@
     }
   },
   "devDependencies": {
+    "@types/react-router-dom": "^5.1.4",
     "axios-mock-adapter": "^1.18.1",
     "husky": "^4.2.5",
     "json-server": "^0.16.1",

@@ -25,7 +25,7 @@ class Vehicle {
   }
 
   get image() {
-    return `img/${this.brand.toLowerCase()}/${this.model.toLowerCase()}.jpg`;
+    return `/img/${this.brand.toLowerCase()}/${this.model.toLowerCase()}.jpg`;
   }
 }
 
