@@ -6,7 +6,7 @@ const middlewares = jsonServer.defaults();
 app.use(middlewares);
 app.use(jsonServer.bodyParser);
 
-const stock = [
+let stock = [
   {
     id: 1,
     brand: "Ford",
@@ -38,6 +38,20 @@ app.get("/api/v1/stock/:id", (req, res) => {
     res.json({ data: vehicle }).end();
 
     return;
+  }
+
+  res.status(500).end();
+});
+
+app.post("/api/v1/book", (req, res) => {
+  const vehicle = stock.find((stock) => stock.id === req.body.id);
+
+  console.log(req.body);
+
+  if (vehicle && req.body.id) {
+    stock.splice(stock.indexOf(vehicle), 1);
+
+    res.json({ success: true }).end();
   }
 
   res.status(500).end();

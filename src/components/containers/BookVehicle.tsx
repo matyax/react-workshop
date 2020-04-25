@@ -67,13 +67,15 @@ const BookVehicle: React.FC<{ match: { params: { id: number } } }> = ({
       id: vehicle.id,
     });
 
+    setSubmitting(false);
+
     if (result === true) {
       setSuccess(true);
+
+      return;
     }
 
     alert("Error: por favor reintente más tarde.");
-
-    setSubmitting(false);
   };
 
   return (
