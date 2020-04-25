@@ -1,9 +1,9 @@
 import React from "react";
 import Vehicle from "models/Vehicle";
-import { Media, Button } from "react-bootstrap";
+import { Media } from "react-bootstrap";
 import { format as formatPrice } from "helpers/price";
 
-const VehicleItem: React.FC<{ vehicle: Vehicle }> = ({ vehicle }) => (
+const VehicleItem: React.FC<{ vehicle: Vehicle }> = ({ vehicle, children }) => (
   <Media as="li" className="vehicle__item" data-testid="vehicle-item">
     <img
       width={120}
@@ -19,7 +19,7 @@ const VehicleItem: React.FC<{ vehicle: Vehicle }> = ({ vehicle }) => (
       </h5>
       <p>{vehicle.description}</p>
       <p>{formatPrice(vehicle.price)}</p>
-      <Button variant="primary">Reservar online</Button>
+      {children}
     </Media.Body>
   </Media>
 );

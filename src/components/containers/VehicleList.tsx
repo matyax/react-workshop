@@ -1,7 +1,9 @@
 import Item from "components/vehicles/Item";
 import React, { useEffect, useState } from "react";
 import Vehicle from "models/Vehicle";
+import { Button } from "react-bootstrap";
 import { get as getStock } from "services/stock";
+import { Link } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
 
 const VehicleList: React.FC = () => {
@@ -32,7 +34,11 @@ const VehicleList: React.FC = () => {
   return (
     <ul className="list-unstyled" data-testid="vehicle-list">
       {vehicles.map((vehicle) => (
-        <Item vehicle={vehicle} key={vehicle.id} />
+        <Item vehicle={vehicle} key={vehicle.id}>
+          <Link to={`/reservar/${vehicle.id}`}>
+            <Button variant="primary">Reservar online</Button>
+          </Link>
+        </Item>
       ))}
     </ul>
   );
