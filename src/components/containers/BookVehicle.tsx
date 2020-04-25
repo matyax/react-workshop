@@ -50,7 +50,7 @@ const BookVehicle: React.FC<{ match: { params: { id: number } } }> = ({
 
   return (
     <Form className="vehicle__form">
-      <h5>Reservar vehículo {id}</h5>
+      <h3>Reservar vehículo {id}</h3>
 
       <VehicleItem vehicle={vehicle} />
 

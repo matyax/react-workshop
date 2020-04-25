@@ -31,6 +31,18 @@ app.get("/api/v1/stock", (req, res) => {
   res.json({ data: stock }).end();
 });
 
+app.get("/api/v1/stock/:id", (req, res) => {
+  const vehicle = stock.find((stock) => stock.id === +req.params.id);
+
+  if (vehicle) {
+    res.json({ data: vehicle }).end();
+
+    return;
+  }
+
+  res.status(500).end();
+});
+
 app.listen(3100, () => {
   console.log("API Mock is running.");
 });
