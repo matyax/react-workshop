@@ -1,7 +1,7 @@
 import axios from "axios";
 import Vehicle, { VehicleData } from "models/Vehicle";
 
-const apiVersion = "v1";
+const apiVersion = process.env.REACT_APP_API_VERSION;
 
 export async function getAll() {
   try {
