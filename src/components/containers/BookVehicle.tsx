@@ -1,12 +1,28 @@
-import React, { useState, SyntheticEvent } from "react";
-import { Form, Button } from "react-bootstrap";
+import React, { useState, useEffect, SyntheticEvent } from "react";
+import Vehicle from "models/Vehicle";
+import VehicleItem from "components/vehicles/Item";
+import { get as getStockItem } from "services/stock";
+import { Form, Button, Spinner } from "react-bootstrap";
 
-const BookVehicle: React.FC = () => {
+const BookVehicle: React.FC<{ match: { params: { id: number } } }> = ({
+  match: {
+    params: { id },
+  },
+}) => {
   const [data, setData] = useState({
     name: "",
     email: "",
     telephone: "",
   });
+  const [vehicle, setVehicle] = useState<Vehicle | null | undefined>(undefined);
+
+  async function getVehicle(id: number) {
+    setVehicle(await getStockItem(id));
+  }
+
+  useEffect(() => {
+    getVehicle(id);
+  }, []);
 
   const handleChange = (e: SyntheticEvent<HTMLInputElement>) => {
     let newData = { ...data, [e.currentTarget.name]: e.currentTarget.value };
@@ -14,8 +30,30 @@ const BookVehicle: React.FC = () => {
     setData(newData);
   };
 
+  if (vehicle === undefined) {
+    return (
+      <Spinner animation="border" role="status">
+        <span className="sr-only">Loading...</span>
+      </Spinner>
+    );
+  }
+
+  if (vehicle === null) {
+    return (
+      <div className="vehicle__form">
+        <h5>Reservar vehículo</h5>
+
+        <p>Este vehículo no está más disponible :(</p>
+      </div>
+    );
+  }
+
   return (
     <Form className="vehicle__form">
+      <h5>Reservar vehículo {id}</h5>
+
+      <VehicleItem vehicle={vehicle} />
+
       <Form.Group>
         <Form.Label>Nombre</Form.Label>
         <Form.Control

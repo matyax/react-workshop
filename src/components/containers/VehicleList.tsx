@@ -2,7 +2,7 @@ import Item from "components/vehicles/Item";
 import React, { useEffect, useState } from "react";
 import Vehicle from "models/Vehicle";
 import { Button } from "react-bootstrap";
-import { get as getStock } from "services/stock";
+import { getAll as getStock } from "services/stock";
 import { Link } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
 
