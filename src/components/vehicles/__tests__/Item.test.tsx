@@ -9,6 +9,7 @@ const vehicle = new Vehicle({
   model: "Test Model",
   price: 100000,
   year: 2020,
+  description: "Un auto",
 });
 
 test("Renders a vehicle item", () => {

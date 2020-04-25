@@ -32,12 +32,16 @@ exports[`Renders a vehicle list 1`] = `
         <p>
           ARS 3,000,000.00
         </p>
-        <button
-          class="btn btn-primary"
-          type="button"
+        <a
+          href="/reservar/1"
         >
-          Reservar online
-        </button>
+          <button
+            class="btn btn-primary"
+            type="button"
+          >
+            Reservar online
+          </button>
+        </a>
       </div>
     </li>
   </ul>

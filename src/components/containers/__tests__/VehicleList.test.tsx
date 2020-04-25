@@ -2,6 +2,7 @@ import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
 import VehicleList from "../VehicleList";
 import React from "react";
+import { MemoryRouter as Router } from "react-router-dom";
 import { render, waitForElement } from "@testing-library/react";
 
 const mock = new MockAdapter(axios);
@@ -23,7 +24,11 @@ beforeEach(() => {
 });
 
 test("Renders a vehicle list", async () => {
-  const { container, getByTestId, getAllByTestId } = render(<VehicleList />);
+  const { container, getByTestId, getAllByTestId } = render(
+    <Router>
+      <VehicleList />
+    </Router>
+  );
 
   await waitForElement(() => getByTestId("vehicle-list"));
 
